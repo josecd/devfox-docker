@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <meta charset="UTF-8">
+  <style>
+    html {
+      font-size: 100%;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    a:focus {
+      outline: thin dotted #333;
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+    a:hover,
+    a:active {
+      outline: 0;
+    }
+    input {
+      margin: 0;
+      font-size: 100%;
+      vertical-align: middle;
+      *overflow: visible;
+      line-height: normal;
+    }
+    input::-moz-focus-inner {
+      padding: 0;
+      border: 0;
+    }
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      color: #333;
+      background-color: #fff;
+    }
+    a {
+      color: #08c;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #005580;
+      text-decoration: underline;
+    }
+    .row {
+      margin-left: -20px;
+      *zoom: 1;
+    }
+    .row:before,
+    .row:after {
+      display: table;
+      content: "";
+      line-height: 0;
+    }
+    .row:after {
+      clear: both;
+    }
+    .span3 {
+      float: left;
+      min-height: 1px;
+      margin-left: 20px;
+      width: 220px;
+    }
+    .container {
+      width: 940px;
+      margin-right: auto;
+      margin-left: auto;
+      *zoom: 1;
+    }
+    .container:before,
+    .container:after {
+      display: table;
+      content: "";
+      line-height: 0;
+    }
+    .container:after {
+      clear: both;
+    }
+    small {
+      font-size: 85%;
+    }
+    h1 {
+      margin: 10px 0;
+      font-family: inherit;
+      font-weight: bold;
+      line-height: 20px;
+      color: inherit;
+      text-rendering: optimizelegibility;
+      line-height: 40px;
+      font-size: 38.5px;
+    }
+    h1 small {
+      font-weight: normal;
+      line-height: 1;
+      color: #999;
+      font-size: 24.5px;
+    }
+
+    body {
+      margin-top: 90px;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      margin-left: -480px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding-top: 10px;
+      z-index: 10;
+    }
+    .footer {
+      color: #ddd;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .footer a {
+      color: #ccc;
+      text-decoration: underline;
+    }
+    .the-icons {
+      font-size: 14px;
+      line-height: 24px;
+    }
+    .switch {
+      position: absolute;
+      right: 0;
+      bottom: 10px;
+      color: #666;
+    }
+    .switch input {
+      margin-right: 0.3em;
+    }
+    .codesOn .i-name {
+      display: none;
+    }
+    .codesOn .i-code {
+      display: inline;
+    }
+    .i-code {
+      display: none;
+    }
+    @font-face {
+      font-family: 'cmt-devfox-icons';
+      src: url('./font/cmt-devfox-icons.eot?2030580');
+      src: url('./font/cmt-devfox-icons.eot?2030580#iefix') format('embedded-opentype'),
+           url('./font/cmt-devfox-icons.woff?2030580') format('woff'),
+           url('./font/cmt-devfox-icons.ttf?2030580') format('truetype'),
+           url('./font/cmt-devfox-icons.svg?2030580#cmt-devfox-icons') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .demo-icon {
+      font-family: "cmt-devfox-icons";
+      font-style: normal;
+      font-weight: normal;
+      speak: never;
+     
+      display: inline-block;
+      text-decoration: inherit;
+      width: 1em;
+      margin-right: .2em;
+      text-align: center;
+      /* opacity: .8; */
+     
+      /* For safety - reset parent styles, that can break glyph codes*/
+      font-variant: normal;
+      text-transform: none;
+     
+      /* fix buttons height, for twitter bootstrap */
+      line-height: 1em;
+     
+      /* Animation center compensation - margins should be symmetric */
+      /* remove if not needed */
+      margin-left: .2em;
+     
+      /* You can be more comfortable with increased icons size */
+      /* font-size: 120%; */
+     
+      /* Font smoothing. That was taken from TWBS */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+     
+      /* Uncomment for 3D effect */
+      /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+    }
+    </style>
+    <link rel="stylesheet" href="css/animation.css"><!--[if IE 7]><link rel="stylesheet" href="css/" + font.fontname + "-ie7.css"><![endif]-->
+    <script>
+      function toggleCodes(on) {
+        var obj = document.getElementById('icons');
+      
+        if (on) {
+          obj.className += ' codesOn';
+        } else {
+          obj.className = obj.className.replace(' codesOn', '');
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container header">
+      <h1>cmt-devfox-icons <small>font demo</small></h1>
+      <label class="switch">
+        <input type="checkbox" onclick="toggleCodes(this.checked)">show codes
+      </label>
+    </div>
+    <div class="container" id="icons">
+      <div class="row">
+        <div class="span3" title="Code: 0xe800">
+          <i class="demo-icon cmt-devfox-icon-google-drive">&#xe800;</i> <span class="i-name">cmt-devfox-icon-google-drive</span><span class="i-code">0xe800</span>
+        </div>
+        <div class="span3" title="Code: 0xe801">
+          <i class="demo-icon cmt-devfox-icon-issuu">&#xe801;</i> <span class="i-name">cmt-devfox-icon-issuu</span><span class="i-code">0xe801</span>
+        </div>
+        <div class="span3" title="Code: 0xe802">
+          <i class="demo-icon cmt-devfox-icon-user">&#xe802;</i> <span class="i-name">cmt-devfox-icon-user</span><span class="i-code">0xe802</span>
+        </div>
+        <div class="span3" title="Code: 0xe803">
+          <i class="demo-icon cmt-devfox-icon-music">&#xe803;</i> <span class="i-name">cmt-devfox-icon-music</span><span class="i-code">0xe803</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe804">
+          <i class="demo-icon cmt-devfox-icon-video">&#xe804;</i> <span class="i-name">cmt-devfox-icon-video</span><span class="i-code">0xe804</span>
+        </div>
+        <div class="span3" title="Code: 0xe805">
+          <i class="demo-icon cmt-devfox-icon-quote">&#xe805;</i> <span class="i-name">cmt-devfox-icon-quote</span><span class="i-code">0xe805</span>
+        </div>
+        <div class="span3" title="Code: 0xe806">
+          <i class="demo-icon cmt-devfox-icon-aside">&#xe806;</i> <span class="i-name">cmt-devfox-icon-aside</span><span class="i-code">0xe806</span>
+        </div>
+        <div class="span3" title="Code: 0xe807">
+          <i class="demo-icon cmt-devfox-icon-rss">&#xe807;</i> <span class="i-name">cmt-devfox-icon-rss</span><span class="i-code">0xe807</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe808">
+          <i class="demo-icon cmt-devfox-icon-angle-left">&#xe808;</i> <span class="i-name">cmt-devfox-icon-angle-left</span><span class="i-code">0xe808</span>
+        </div>
+        <div class="span3" title="Code: 0xe809">
+          <i class="demo-icon cmt-devfox-icon-angle-right">&#xe809;</i> <span class="i-name">cmt-devfox-icon-angle-right</span><span class="i-code">0xe809</span>
+        </div>
+        <div class="span3" title="Code: 0xe80a">
+          <i class="demo-icon cmt-devfox-icon-status">&#xe80a;</i> <span class="i-name">cmt-devfox-icon-status</span><span class="i-code">0xe80a</span>
+        </div>
+        <div class="span3" title="Code: 0xe80b">
+          <i class="demo-icon cmt-devfox-icon-dribbble">&#xe80b;</i> <span class="i-name">cmt-devfox-icon-dribbble</span><span class="i-code">0xe80b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe80c">
+          <i class="demo-icon cmt-devfox-icon-facebook">&#xe80c;</i> <span class="i-name">cmt-devfox-icon-facebook</span><span class="i-code">0xe80c</span>
+        </div>
+        <div class="span3" title="Code: 0xe80d">
+          <i class="demo-icon cmt-devfox-icon-flickr">&#xe80d;</i> <span class="i-name">cmt-devfox-icon-flickr</span><span class="i-code">0xe80d</span>
+        </div>
+        <div class="span3" title="Code: 0xe80e">
+          <i class="demo-icon cmt-devfox-icon-gplus">&#xe80e;</i> <span class="i-name">cmt-devfox-icon-gplus</span><span class="i-code">0xe80e</span>
+        </div>
+        <div class="span3" title="Code: 0xe80f">
+          <i class="demo-icon cmt-devfox-icon-instagram">&#xe80f;</i> <span class="i-name">cmt-devfox-icon-instagram</span><span class="i-code">0xe80f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe810">
+          <i class="demo-icon cmt-devfox-icon-linkedin">&#xe810;</i> <span class="i-name">cmt-devfox-icon-linkedin</span><span class="i-code">0xe810</span>
+        </div>
+        <div class="span3" title="Code: 0xe811">
+          <i class="demo-icon cmt-devfox-icon-pinterest">&#xe811;</i> <span class="i-name">cmt-devfox-icon-pinterest</span><span class="i-code">0xe811</span>
+        </div>
+        <div class="span3" title="Code: 0xe812">
+          <i class="demo-icon cmt-devfox-icon-twitter">&#xe812;</i> <span class="i-name">cmt-devfox-icon-twitter</span><span class="i-code">0xe812</span>
+        </div>
+        <div class="span3" title="Code: 0xe813">
+          <i class="demo-icon cmt-devfox-icon-vk">&#xe813;</i> <span class="i-name">cmt-devfox-icon-vk</span><span class="i-code">0xe813</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe814">
+          <i class="demo-icon cmt-devfox-icon-xing">&#xe814;</i> <span class="i-name">cmt-devfox-icon-xing</span><span class="i-code">0xe814</span>
+        </div>
+        <div class="span3" title="Code: 0xe815">
+          <i class="demo-icon cmt-devfox-icon-yelp">&#xe815;</i> <span class="i-name">cmt-devfox-icon-yelp</span><span class="i-code">0xe815</span>
+        </div>
+        <div class="span3" title="Code: 0xe816">
+          <i class="demo-icon cmt-devfox-icon-youtube">&#xe816;</i> <span class="i-name">cmt-devfox-icon-youtube</span><span class="i-code">0xe816</span>
+        </div>
+        <div class="span3" title="Code: 0xe817">
+          <i class="demo-icon cmt-devfox-icon-gallery">&#xe817;</i> <span class="i-name">cmt-devfox-icon-gallery</span><span class="i-code">0xe817</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe818">
+          <i class="demo-icon cmt-devfox-icon-plus">&#xe818;</i> <span class="i-name">cmt-devfox-icon-plus</span><span class="i-code">0xe818</span>
+        </div>
+        <div class="span3" title="Code: 0xe819">
+          <i class="demo-icon cmt-devfox-icon-link">&#xe819;</i> <span class="i-name">cmt-devfox-icon-link</span><span class="i-code">0xe819</span>
+        </div>
+        <div class="span3" title="Code: 0xe81a">
+          <i class="demo-icon cmt-devfox-icon-tag">&#xe81a;</i> <span class="i-name">cmt-devfox-icon-tag</span><span class="i-code">0xe81a</span>
+        </div>
+        <div class="span3" title="Code: 0xe81b">
+          <i class="demo-icon cmt-devfox-icon-clock">&#xe81b;</i> <span class="i-name">cmt-devfox-icon-clock</span><span class="i-code">0xe81b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe81c">
+          <i class="demo-icon cmt-devfox-icon-heart">&#xe81c;</i> <span class="i-name">cmt-devfox-icon-heart</span><span class="i-code">0xe81c</span>
+        </div>
+        <div class="span3" title="Code: 0xe81d">
+          <i class="demo-icon cmt-devfox-icon-sticky">&#xe81d;</i> <span class="i-name">cmt-devfox-icon-sticky</span><span class="i-code">0xe81d</span>
+        </div>
+        <div class="span3" title="Code: 0xe81e">
+          <i class="demo-icon cmt-devfox-icon-marker">&#xe81e;</i> <span class="i-name">cmt-devfox-icon-marker</span><span class="i-code">0xe81e</span>
+        </div>
+        <div class="span3" title="Code: 0xe81f">
+          <i class="demo-icon cmt-devfox-icon-comment">&#xe81f;</i> <span class="i-name">cmt-devfox-icon-comment</span><span class="i-code">0xe81f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe820">
+          <i class="demo-icon cmt-devfox-icon-chat">&#xe820;</i> <span class="i-name">cmt-devfox-icon-chat</span><span class="i-code">0xe820</span>
+        </div>
+        <div class="span3" title="Code: 0xe821">
+          <i class="demo-icon cmt-devfox-icon-podcast">&#xe821;</i> <span class="i-name">cmt-devfox-icon-podcast</span><span class="i-code">0xe821</span>
+        </div>
+        <div class="span3" title="Code: 0xe822">
+          <i class="demo-icon cmt-devfox-icon-houzz">&#xe822;</i> <span class="i-name">cmt-devfox-icon-houzz</span><span class="i-code">0xe822</span>
+        </div>
+        <div class="span3" title="Code: 0xe823">
+          <i class="demo-icon cmt-devfox-icon-image">&#xe823;</i> <span class="i-name">cmt-devfox-icon-image</span><span class="i-code">0xe823</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe824">
+          <i class="demo-icon cmt-devfox-icon-cart">&#xe824;</i> <span class="i-name">cmt-devfox-icon-cart</span><span class="i-code">0xe824</span>
+        </div>
+        <div class="span3" title="Code: 0xe825">
+          <i class="demo-icon cmt-devfox-icon-search">&#xe825;</i> <span class="i-name">cmt-devfox-icon-search</span><span class="i-code">0xe825</span>
+        </div>
+        <div class="span3" title="Code: 0xe826">
+          <i class="demo-icon cmt-devfox-icon-arrow-right">&#xe826;</i> <span class="i-name">cmt-devfox-icon-arrow-right</span><span class="i-code">0xe826</span>
+        </div>
+        <div class="span3" title="Code: 0xe827">
+          <i class="demo-icon cmt-devfox-icon-pencil">&#xe827;</i> <span class="i-name">cmt-devfox-icon-pencil</span><span class="i-code">0xe827</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe828">
+          <i class="demo-icon cmt-devfox-icon-mobile">&#xe828;</i> <span class="i-name">cmt-devfox-icon-mobile</span><span class="i-code">0xe828</span>
+        </div>
+        <div class="span3" title="Code: 0xe829">
+          <i class="demo-icon cmt-devfox-icon-comment-1">&#xe829;</i> <span class="i-name">cmt-devfox-icon-comment-1</span><span class="i-code">0xe829</span>
+        </div>
+        <div class="span3" title="Code: 0xe82a">
+          <i class="demo-icon cmt-devfox-icon-world">&#xe82a;</i> <span class="i-name">cmt-devfox-icon-world</span><span class="i-code">0xe82a</span>
+        </div>
+        <div class="span3" title="Code: 0xe82b">
+          <i class="demo-icon cmt-devfox-icon-location-pin">&#xe82b;</i> <span class="i-name">cmt-devfox-icon-location-pin</span><span class="i-code">0xe82b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe82c">
+          <i class="demo-icon cmt-devfox-icon-quote-left">&#xe82c;</i> <span class="i-name">cmt-devfox-icon-quote-left</span><span class="i-code">0xe82c</span>
+        </div>
+        <div class="span3" title="Code: 0xe82d">
+          <i class="demo-icon cmt-devfox-icon-close">&#xe82d;</i> <span class="i-name">cmt-devfox-icon-close</span><span class="i-code">0xe82d</span>
+        </div>
+        <div class="span3" title="Code: 0xe82e">
+          <i class="demo-icon cmt-devfox-icon-comments-smiley">&#xe82e;</i> <span class="i-name">cmt-devfox-icon-comments-smiley</span><span class="i-code">0xe82e</span>
+        </div>
+        <div class="span3" title="Code: 0xe82f">
+          <i class="demo-icon cmt-devfox-icon-category">&#xe82f;</i> <span class="i-name">cmt-devfox-icon-category</span><span class="i-code">0xe82f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe830">
+          <i class="demo-icon cmt-devfox-icon-tag-1">&#xe830;</i> <span class="i-name">cmt-devfox-icon-tag-1</span><span class="i-code">0xe830</span>
+        </div>
+        <div class="span3" title="Code: 0xe831">
+          <i class="demo-icon cmt-devfox-icon-shift-right">&#xe831;</i> <span class="i-name">cmt-devfox-icon-shift-right</span><span class="i-code">0xe831</span>
+        </div>
+        <div class="span3" title="Code: 0xe832">
+          <i class="demo-icon cmt-devfox-icon-mail">&#xe832;</i> <span class="i-name">cmt-devfox-icon-mail</span><span class="i-code">0xe832</span>
+        </div>
+        <div class="span3" title="Code: 0xe833">
+          <i class="demo-icon cmt-devfox-icon-phone">&#xe833;</i> <span class="i-name">cmt-devfox-icon-phone</span><span class="i-code">0xe833</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe834">
+          <i class="demo-icon cmt-devfox-icon-arrow-left">&#xe834;</i> <span class="i-name">cmt-devfox-icon-arrow-left</span><span class="i-code">0xe834</span>
+        </div>
+        <div class="span3" title="Code: 0xe835">
+          <i class="demo-icon cmt-devfox-icon-gallery-1">&#xe835;</i> <span class="i-name">cmt-devfox-icon-gallery-1</span><span class="i-code">0xe835</span>
+        </div>
+        <div class="span3" title="Code: 0xe836">
+          <i class="demo-icon cmt-devfox-icon-music-alt">&#xe836;</i> <span class="i-name">cmt-devfox-icon-music-alt</span><span class="i-code">0xe836</span>
+        </div>
+        <div class="span3" title="Code: 0xe837">
+          <i class="demo-icon cmt-devfox-icon-shopping-cart">&#xe837;</i> <span class="i-name">cmt-devfox-icon-shopping-cart</span><span class="i-code">0xe837</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe838">
+          <i class="demo-icon cmt-devfox-icon-heart-empty">&#xe838;</i> <span class="i-name">cmt-devfox-icon-heart-empty</span><span class="i-code">0xe838</span>
+        </div>
+        <div class="span3" title="Code: 0xe839">
+          <i class="demo-icon cmt-devfox-icon-check">&#xe839;</i> <span class="i-name">cmt-devfox-icon-check</span><span class="i-code">0xe839</span>
+        </div>
+        <div class="span3" title="Code: 0xe83a">
+          <i class="demo-icon cmt-devfox-icon-arrow-left-1">&#xe83a;</i> <span class="i-name">cmt-devfox-icon-arrow-left-1</span><span class="i-code">0xe83a</span>
+        </div>
+        <div class="span3" title="Code: 0xe83b">
+          <i class="demo-icon cmt-devfox-icon-plus-1">&#xe83b;</i> <span class="i-name">cmt-devfox-icon-plus-1</span><span class="i-code">0xe83b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe83c">
+          <i class="demo-icon cmt-devfox-icon-unlink">&#xe83c;</i> <span class="i-name">cmt-devfox-icon-unlink</span><span class="i-code">0xe83c</span>
+        </div>
+        <div class="span3" title="Code: 0xe83d">
+          <i class="demo-icon cmt-devfox-icon-quote-right">&#xe83d;</i> <span class="i-name">cmt-devfox-icon-quote-right</span><span class="i-code">0xe83d</span>
+        </div>
+        <div class="span3" title="Code: 0xe83e">
+          <i class="demo-icon cmt-devfox-icon-home">&#xe83e;</i> <span class="i-name">cmt-devfox-icon-home</span><span class="i-code">0xe83e</span>
+        </div>
+        <div class="span3" title="Code: 0xe83f">
+          <i class="demo-icon cmt-devfox-icon-quote-1">&#xe83f;</i> <span class="i-name">cmt-devfox-icon-quote-1</span><span class="i-code">0xe83f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe840">
+          <i class="demo-icon cmt-devfox-icon-ok">&#xe840;</i> <span class="i-name">cmt-devfox-icon-ok</span><span class="i-code">0xe840</span>
+        </div>
+        <div class="span3" title="Code: 0xe841">
+          <i class="demo-icon cmt-devfox-icon-search-1">&#xe841;</i> <span class="i-name">cmt-devfox-icon-search-1</span><span class="i-code">0xe841</span>
+        </div>
+        <div class="span3" title="Code: 0xe842">
+          <i class="demo-icon cmt-devfox-icon-eye">&#xe842;</i> <span class="i-name">cmt-devfox-icon-eye</span><span class="i-code">0xe842</span>
+        </div>
+        <div class="span3" title="Code: 0xe843">
+          <i class="demo-icon cmt-devfox-icon-basket">&#xe843;</i> <span class="i-name">cmt-devfox-icon-basket</span><span class="i-code">0xe843</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe844">
+          <i class="demo-icon cmt-devfox-icon-paper-plane">&#xe844;</i> <span class="i-name">cmt-devfox-icon-paper-plane</span><span class="i-code">0xe844</span>
+        </div>
+        <div class="span3" title="Code: 0xe845">
+          <i class="demo-icon cmt-devfox-icon-arrow-circle-down">&#xe845;</i> <span class="i-name">cmt-devfox-icon-arrow-circle-down</span><span class="i-code">0xe845</span>
+        </div>
+        <div class="span3" title="Code: 0xe846">
+          <i class="demo-icon cmt-devfox-icon-minus">&#xe846;</i> <span class="i-name">cmt-devfox-icon-minus</span><span class="i-code">0xe846</span>
+        </div>
+        <div class="span3" title="Code: 0xe847">
+          <i class="demo-icon cmt-devfox-icon-minus-1">&#xe847;</i> <span class="i-name">cmt-devfox-icon-minus-1</span><span class="i-code">0xe847</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe848">
+          <i class="demo-icon cmt-devfox-icon-left-open-big">&#xe848;</i> <span class="i-name">cmt-devfox-icon-left-open-big</span><span class="i-code">0xe848</span>
+        </div>
+        <div class="span3" title="Code: 0xe849">
+          <i class="demo-icon cmt-devfox-icon-right-open-big">&#xe849;</i> <span class="i-name">cmt-devfox-icon-right-open-big</span><span class="i-code">0xe849</span>
+        </div>
+        <div class="span3" title="Code: 0xe84a">
+          <i class="demo-icon cmt-devfox-icon-location">&#xe84a;</i> <span class="i-name">cmt-devfox-icon-location</span><span class="i-code">0xe84a</span>
+        </div>
+        <div class="span3" title="Code: 0xe84b">
+          <i class="demo-icon cmt-devfox-icon-comment-3">&#xe84b;</i> <span class="i-name">cmt-devfox-icon-comment-3</span><span class="i-code">0xe84b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe84c">
+          <i class="demo-icon cmt-devfox-icon-user-1">&#xe84c;</i> <span class="i-name">cmt-devfox-icon-user-1</span><span class="i-code">0xe84c</span>
+        </div>
+        <div class="span3" title="Code: 0xe84d">
+          <i class="demo-icon cmt-devfox-icon-star-1">&#xe84d;</i> <span class="i-name">cmt-devfox-icon-star-1</span><span class="i-code">0xe84d</span>
+        </div>
+        <div class="span3" title="Code: 0xe84e">
+          <i class="demo-icon cmt-devfox-icon-star-empty-1">&#xe84e;</i> <span class="i-name">cmt-devfox-icon-star-empty-1</span><span class="i-code">0xe84e</span>
+        </div>
+        <div class="span3" title="Code: 0xe84f">
+          <i class="demo-icon cmt-devfox-icon-folder">&#xe84f;</i> <span class="i-name">cmt-devfox-icon-folder</span><span class="i-code">0xe84f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe850">
+          <i class="demo-icon cmt-devfox-icon-ok-1">&#xe850;</i> <span class="i-name">cmt-devfox-icon-ok-1</span><span class="i-code">0xe850</span>
+        </div>
+        <div class="span3" title="Code: 0xe851">
+          <i class="demo-icon cmt-devfox-icon-mail-1">&#xe851;</i> <span class="i-name">cmt-devfox-icon-mail-1</span><span class="i-code">0xe851</span>
+        </div>
+        <div class="span3" title="Code: 0xe852">
+          <i class="demo-icon cmt-devfox-icon-location-outline">&#xe852;</i> <span class="i-name">cmt-devfox-icon-location-outline</span><span class="i-code">0xe852</span>
+        </div>
+        <div class="span3" title="Code: 0xe853">
+          <i class="demo-icon cmt-devfox-icon-location-2">&#xe853;</i> <span class="i-name">cmt-devfox-icon-location-2</span><span class="i-code">0xe853</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe854">
+          <i class="demo-icon cmt-devfox-icon-right-small">&#xe854;</i> <span class="i-name">cmt-devfox-icon-right-small</span><span class="i-code">0xe854</span>
+        </div>
+        <div class="span3" title="Code: 0xe855">
+          <i class="demo-icon cmt-devfox-icon-right">&#xe855;</i> <span class="i-name">cmt-devfox-icon-right</span><span class="i-code">0xe855</span>
+        </div>
+        <div class="span3" title="Code: 0xe856">
+          <i class="demo-icon cmt-devfox-icon-quote-right-alt">&#xe856;</i> <span class="i-name">cmt-devfox-icon-quote-right-alt</span><span class="i-code">0xe856</span>
+        </div>
+        <div class="span3" title="Code: 0xe857">
+          <i class="demo-icon cmt-devfox-icon-megaphone">&#xe857;</i> <span class="i-name">cmt-devfox-icon-megaphone</span><span class="i-code">0xe857</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe858">
+          <i class="demo-icon cmt-devfox-icon-cancel">&#xe858;</i> <span class="i-name">cmt-devfox-icon-cancel</span><span class="i-code">0xe858</span>
+        </div>
+        <div class="span3" title="Code: 0xe859">
+          <i class="demo-icon cmt-devfox-icon-cancel-1">&#xe859;</i> <span class="i-name">cmt-devfox-icon-cancel-1</span><span class="i-code">0xe859</span>
+        </div>
+        <div class="span3" title="Code: 0xe85a">
+          <i class="demo-icon cmt-devfox-icon-cancel-2">&#xe85a;</i> <span class="i-name">cmt-devfox-icon-cancel-2</span><span class="i-code">0xe85a</span>
+        </div>
+        <div class="span3" title="Code: 0xe85b">
+          <i class="demo-icon cmt-devfox-icon-facebook-rect-1">&#xe85b;</i> <span class="i-name">cmt-devfox-icon-facebook-rect-1</span><span class="i-code">0xe85b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe85c">
+          <i class="demo-icon cmt-devfox-icon-calendar">&#xe85c;</i> <span class="i-name">cmt-devfox-icon-calendar</span><span class="i-code">0xe85c</span>
+        </div>
+        <div class="span3" title="Code: 0xe85d">
+          <i class="demo-icon cmt-devfox-icon-play">&#xe85d;</i> <span class="i-name">cmt-devfox-icon-play</span><span class="i-code">0xe85d</span>
+        </div>
+        <div class="span3" title="Code: 0xe85e">
+          <i class="demo-icon cmt-devfox-icon-play-1">&#xe85e;</i> <span class="i-name">cmt-devfox-icon-play-1</span><span class="i-code">0xe85e</span>
+        </div>
+        <div class="span3" title="Code: 0xe85f">
+          <i class="demo-icon cmt-devfox-icon-paper-plane-3">&#xe85f;</i> <span class="i-name">cmt-devfox-icon-paper-plane-3</span><span class="i-code">0xe85f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xf0c9">
+          <i class="demo-icon cmt-devfox-icon-menu">&#xf0c9;</i> <span class="i-name">cmt-devfox-icon-menu</span><span class="i-code">0xf0c9</span>
+        </div>
+        <div class="span3" title="Code: 0xf0e5">
+          <i class="demo-icon cmt-devfox-icon-comment-empty">&#xf0e5;</i> <span class="i-name">cmt-devfox-icon-comment-empty</span><span class="i-code">0xf0e5</span>
+        </div>
+        <div class="span3" title="Code: 0xf100">
+          <i class="demo-icon cmt-devfox-icon-angle-double-left">&#xf100;</i> <span class="i-name">cmt-devfox-icon-angle-double-left</span><span class="i-code">0xf100</span>
+        </div>
+        <div class="span3" title="Code: 0xf101">
+          <i class="demo-icon cmt-devfox-icon-angle-double-right">&#xf101;</i> <span class="i-name">cmt-devfox-icon-angle-double-right</span><span class="i-code">0xf101</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xf106">
+          <i class="demo-icon cmt-devfox-icon-angle-up">&#xf106;</i> <span class="i-name">cmt-devfox-icon-angle-up</span><span class="i-code">0xf106</span>
+        </div>
+        <div class="span3" title="Code: 0xf107">
+          <i class="demo-icon cmt-devfox-icon-angle-down">&#xf107;</i> <span class="i-name">cmt-devfox-icon-angle-down</span><span class="i-code">0xf107</span>
+        </div>
+        <div class="span3" title="Code: 0xf10e">
+          <i class="demo-icon cmt-devfox-icon-quote-right-1">&#xf10e;</i> <span class="i-name">cmt-devfox-icon-quote-right-1</span><span class="i-code">0xf10e</span>
+        </div>
+        <div class="span3" title="Code: 0xf115">
+          <i class="demo-icon cmt-devfox-icon-folder-open-empty">&#xf115;</i> <span class="i-name">cmt-devfox-icon-folder-open-empty</span><span class="i-code">0xf115</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xf173">
+          <i class="demo-icon cmt-devfox-icon-tumblr">&#xf173;</i> <span class="i-name">cmt-devfox-icon-tumblr</span><span class="i-code">0xf173</span>
+        </div>
+        <div class="span3" title="Code: 0xf179">
+          <i class="demo-icon cmt-devfox-icon-apple">&#xf179;</i> <span class="i-name">cmt-devfox-icon-apple</span><span class="i-code">0xf179</span>
+        </div>
+        <div class="span3" title="Code: 0xf1a4">
+          <i class="demo-icon cmt-devfox-icon-stumbleupon">&#xf1a4;</i> <span class="i-name">cmt-devfox-icon-stumbleupon</span><span class="i-code">0xf1a4</span>
+        </div>
+        <div class="span3" title="Code: 0xf1a6">
+          <i class="demo-icon cmt-devfox-icon-digg">&#xf1a6;</i> <span class="i-name">cmt-devfox-icon-digg</span><span class="i-code">0xf1a6</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xf1e0">
+          <i class="demo-icon cmt-devfox-icon-share">&#xf1e0;</i> <span class="i-name">cmt-devfox-icon-share</span><span class="i-code">0xf1e0</span>
+        </div>
+        <div class="span3" title="Code: 0xf232">
+          <i class="demo-icon cmt-devfox-icon-whatsapp">&#xf232;</i> <span class="i-name">cmt-devfox-icon-whatsapp</span><span class="i-code">0xf232</span>
+        </div>
+        <div class="span3" title="Code: 0xf281">
+          <i class="demo-icon cmt-devfox-icon-reddit">&#xf281;</i> <span class="i-name">cmt-devfox-icon-reddit</span><span class="i-code">0xf281</span>
+        </div>
+        <div class="span3" title="Code: 0xf291">
+          <i class="demo-icon cmt-devfox-icon-shopping-basket">&#xf291;</i> <span class="i-name">cmt-devfox-icon-shopping-basket</span><span class="i-code">0xf291</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xf301">
+          <i class="demo-icon cmt-devfox-icon-facebook-rect">&#xf301;</i> <span class="i-name">cmt-devfox-icon-facebook-rect</span><span class="i-code">0xf301</span>
+        </div>
+        <div class="span3" title="Code: 0xf308">
+          <i class="demo-icon cmt-devfox-icon-facebook-squared">&#xf308;</i> <span class="i-name">cmt-devfox-icon-facebook-squared</span><span class="i-code">0xf308</span>
+        </div>
+        <div class="span3" title="Code: 0xe81ce">
+          <i class="demo-icon cmt-devfox-icon-vimeo">&#xe81ce;</i> <span class="i-name">cmt-devfox-icon-vimeo</span><span class="i-code">0xe81ce</span>
+        </div>
+      </div>
+    <div class="container footer">Generated by <a href="https://fontello.com">fontello.com</a></div>
+  </body>
+</html>

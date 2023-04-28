@@ -1,0 +1,129 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?ac7c12c4282d8c6ae999da0c0184170c") format("truetype"),
+url("./flaticon.woff?ac7c12c4282d8c6ae999da0c0184170c") format("woff"),
+url("./flaticon.woff2?ac7c12c4282d8c6ae999da0c0184170c") format("woff2"),
+url("./flaticon.eot?ac7c12c4282d8c6ae999da0c0184170c#iefix") format("embedded-opentype"),
+url("./flaticon.svg?ac7c12c4282d8c6ae999da0c0184170c#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "support": "\f101",
+    "cloud": "\f102",
+    "cyber-security": "\f103",
+    "server": "\f104",
+    "happy": "\f105",
+    "award": "\f106",
+    "mission": "\f107",
+    "suitcase": "\f108",
+    "envelope": "\f109",
+    "pin": "\f10a",
+    "left-quote": "\f10b",
+    "project": "\f10c",
+    "phone-call": "\f10d",
+    "world": "\f10e",
+    "clock": "\f10f",
+    "email-marketing": "\f110",
+    "header": "\f111",
+    "layout": "\f112",
+    "cyber-security-1": "\f113",
+    "gear": "\f114",
+    "communities": "\f115",
+    "data-management": "\f116",
+    "leader": "\f117",
+    "web-coding": "\f118",
+    "briefing": "\f119",
+    "cloud-server": "\f11a",
+);
+
+.flaticon-support:before {
+    content: map-get($flaticon-map, "support");
+}
+.flaticon-cloud:before {
+    content: map-get($flaticon-map, "cloud");
+}
+.flaticon-cyber-security:before {
+    content: map-get($flaticon-map, "cyber-security");
+}
+.flaticon-server:before {
+    content: map-get($flaticon-map, "server");
+}
+.flaticon-happy:before {
+    content: map-get($flaticon-map, "happy");
+}
+.flaticon-award:before {
+    content: map-get($flaticon-map, "award");
+}
+.flaticon-mission:before {
+    content: map-get($flaticon-map, "mission");
+}
+.flaticon-suitcase:before {
+    content: map-get($flaticon-map, "suitcase");
+}
+.flaticon-envelope:before {
+    content: map-get($flaticon-map, "envelope");
+}
+.flaticon-pin:before {
+    content: map-get($flaticon-map, "pin");
+}
+.flaticon-left-quote:before {
+    content: map-get($flaticon-map, "left-quote");
+}
+.flaticon-project:before {
+    content: map-get($flaticon-map, "project");
+}
+.flaticon-phone-call:before {
+    content: map-get($flaticon-map, "phone-call");
+}
+.flaticon-world:before {
+    content: map-get($flaticon-map, "world");
+}
+.flaticon-clock:before {
+    content: map-get($flaticon-map, "clock");
+}
+.flaticon-email-marketing:before {
+    content: map-get($flaticon-map, "email-marketing");
+}
+.flaticon-header:before {
+    content: map-get($flaticon-map, "header");
+}
+.flaticon-layout:before {
+    content: map-get($flaticon-map, "layout");
+}
+.flaticon-cyber-security-1:before {
+    content: map-get($flaticon-map, "cyber-security-1");
+}
+.flaticon-gear:before {
+    content: map-get($flaticon-map, "gear");
+}
+.flaticon-communities:before {
+    content: map-get($flaticon-map, "communities");
+}
+.flaticon-data-management:before {
+    content: map-get($flaticon-map, "data-management");
+}
+.flaticon-leader:before {
+    content: map-get($flaticon-map, "leader");
+}
+.flaticon-web-coding:before {
+    content: map-get($flaticon-map, "web-coding");
+}
+.flaticon-briefing:before {
+    content: map-get($flaticon-map, "briefing");
+}
+.flaticon-cloud-server:before {
+    content: map-get($flaticon-map, "cloud-server");
+}
